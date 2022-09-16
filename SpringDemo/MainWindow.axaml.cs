@@ -26,9 +26,11 @@ public partial class MainWindow : Window
 
         var compositor = compositionVisual.Compositor;
 
+        var easing = new SpringEasing();
+        
         var animation = compositor.CreateVector3KeyFrameAnimation();
-        animation.InsertKeyFrame(0f, new Vector3(-300f, 0f, 0f));
-        animation.InsertKeyFrame(1f, new Vector3(0f, 0f, 0f), new SpringEasing());
+        animation.InsertKeyFrame(0f, new Vector3(-300f, 0f, 0f), easing);
+        animation.InsertKeyFrame(1f, new Vector3(0f, 0f, 0f), easing);
         animation.Duration = TimeSpan.FromMilliseconds(900);
         animation.Direction = PlaybackDirection.Normal;
         animation.IterationCount = int.MaxValue;
