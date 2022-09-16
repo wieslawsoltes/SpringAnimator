@@ -4,7 +4,7 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Utilities;
 
-namespace SpringDemo;
+namespace SpringDemo.Animation;
 
 /// <summary>
 /// Determines how an animation is used based on spring formula.

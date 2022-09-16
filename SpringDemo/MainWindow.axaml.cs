@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Rendering.Composition;
+using SpringDemo.Animation;
 
 namespace SpringDemo;
 

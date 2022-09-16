@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Globalization;
 
-namespace SpringDemo;
+namespace SpringDemo.Animation;
 
 /// <summary>
 /// Converts string values to <see cref="Spring"/> values.

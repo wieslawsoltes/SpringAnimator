@@ -1,7 +1,6 @@
 ﻿using Avalonia.Animation.Easings;
 
-namespace SpringDemo;
-
+namespace SpringDemo.Animation;
 
 /// <summary>
 /// Eases a <see cref="double"/> value using a user-defined spring formula.
