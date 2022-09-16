@@ -30,9 +30,9 @@
   <TabControl>
 
     <TabItem Header="Compositor">
-      <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
         <Border Name="Border1" Background="Red" Width="50" Height="50" />
-      </Canvas>
+      </Panel>
     </TabItem>
 
     <TabItem Header="Style">
