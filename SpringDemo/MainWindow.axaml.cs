@@ -26,8 +26,14 @@ public partial class MainWindow : Window
 
         var compositor = compositionVisual.Compositor;
 
-        var easing = new SpringEasing();
-        
+        var easing = new SpringEasing
+        {
+            Mass = 1,
+            Stiffness = 2000,
+            Damping = 20,
+            InitialVelocity = 0
+        };
+
         var animation = compositor.CreateVector3KeyFrameAnimation();
         animation.InsertKeyFrame(0f, new Vector3(-300f, 0f, 0f), easing);
         animation.InsertKeyFrame(1f, new Vector3(0f, 0f, 0f), easing);

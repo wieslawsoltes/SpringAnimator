@@ -1,4 +1,4 @@
-﻿// https://www.figma.com/blog/how-we-built-spring-animations/
+﻿// Ported from:
 // https://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/SpringSolver.h
 /*
  * Copyright (C) 2016 Apple Inc. All rights reserved.
@@ -29,7 +29,7 @@ using System;
 
 namespace SpringDemo;
 
-public struct SpringSolver 
+internal struct SpringSolver 
 {
     private double m_w0;
     private double m_zeta;
