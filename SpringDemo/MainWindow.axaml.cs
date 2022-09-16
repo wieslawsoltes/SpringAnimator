@@ -13,12 +13,12 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         
-        Border.AttachedToVisualTree += BorderOnAttachedToVisualTree;
+        Border1.AttachedToVisualTree += BorderOnAttachedToVisualTree;
     }
 
     private void BorderOnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
     {
-        var compositionVisual = ElementComposition.GetElementVisual(Border);
+        var compositionVisual = ElementComposition.GetElementVisual(Border1);
         if (compositionVisual is null)
         {
             return;

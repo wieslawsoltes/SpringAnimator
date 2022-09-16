@@ -25,8 +25,16 @@
       </Style.Animations>
     </Style>
   </Window.Styles>
-  <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
-    <!-- <Border Name="Border" Classes="spring" Background="Red" Width="50" Height="50" /> -->
-    <Border Name="Border" Background="Red" Width="50" Height="50" />
-  </Canvas>
+  <TabControl>
+    <TabItem Header="Compositor">
+      <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Name="Border1" Background="Red" Width="50" Height="50" />
+      </Canvas>
+    </TabItem>
+    <TabItem Header="Style">
+      <Grid>
+        <Border Name="Border2" Classes="spring" Background="Red" Width="50" Height="50" />
+      </Grid>
+    </TabItem>
+  </TabControl>
 </Window>
