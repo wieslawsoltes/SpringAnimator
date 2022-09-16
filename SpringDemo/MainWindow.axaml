@@ -2,7 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:local="clr-namespace:SpringDemo"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350"
         x:Class="SpringDemo.MainWindow"
         WindowStartupLocation="CenterScreen"
         Width="800" Height="600"
@@ -15,8 +16,11 @@
   <Window.Styles>
     <Style Selector="Border.spring">
       <Style.Animations>
-        <Animation Duration="0:0:0.900" IterationCount="Infinite" PlaybackDirection="Normal" Easing="{StaticResource SpringEasing}">
-          <KeyFrame Cue="0%">
+        <Animation Duration="0:0:0.900" 
+                   IterationCount="Infinite" 
+                   PlaybackDirection="Normal" 
+                   Easing="{StaticResource SpringEasing}">
+          <KeyFrame Cue="0%" KeySpline="">
             <Setter Property="TranslateTransform.X" Value="-300"/>
           </KeyFrame>
           <KeyFrame Cue="100%">
@@ -28,6 +32,31 @@
   </Window.Styles>
 
   <TabControl>
+
+    <TabItem Header="Graph">
+      <Grid RowDefinitions="*,Auto">
+        <Panel Grid.Row="0" Margin="12">
+          <local:SpringGraph Name="SpringGraph"
+                             Mass="1" 
+                             Stiffness="2000" 
+                             Damping="20" 
+                             InitialVelocity="0"
+                             Stroke="Black"
+                             StrokeThickness="2"
+                             Stretch="Fill" />
+        </Panel>
+        <Grid Grid.Row="1" Margin="12" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto">
+          <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Content="Mass" />
+          <TextBox Grid.Row="0" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Mass}" />
+          <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Content="Stiffness" />
+          <TextBox Grid.Row="1" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Stiffness}" />
+          <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Content="Damping" />
+          <TextBox Grid.Row="2" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Damping}" />
+          <Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Content="InitialVelocity" />
+          <TextBox Grid.Row="3" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.InitialVelocity}" />
+        </Grid>
+      </Grid>
+    </TabItem>
 
     <TabItem Header="Compositor">
       <Panel HorizontalAlignment="Center" VerticalAlignment="Center">
