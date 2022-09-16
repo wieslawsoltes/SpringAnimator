@@ -27,7 +27,7 @@ public class SpringGraph : Polyline
     public SpringGraph()
     {
         _spring = new Spring();
-        _partitions = 100;
+        _partitions = 1000;
         _isDirty = true;
     }
 
