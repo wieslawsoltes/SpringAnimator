@@ -16,10 +16,10 @@
       <Style.Animations>
         <Animation Duration="0:0:0.900" IterationCount="Infinite" PlaybackDirection="Normal" Easing="{StaticResource SpringEasing}">
           <KeyFrame Cue="0%">
-            <Setter Property="TranslateTransform.X" Value="0"/>
+            <Setter Property="TranslateTransform.X" Value="-300"/>
           </KeyFrame>
           <KeyFrame Cue="100%">
-            <Setter Property="TranslateTransform.X" Value="300" />
+            <Setter Property="TranslateTransform.X" Value="0" />
           </KeyFrame>
         </Animation>
       </Style.Animations>
