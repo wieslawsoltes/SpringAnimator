@@ -33,7 +33,13 @@
     </TabItem>
     <TabItem Header="Style">
       <Grid>
-        <Border Name="Border2" Classes="spring" Background="Red" Width="50" Height="50" />
+        <Border Name="Border2" Classes="spring" Background="Red" Width="50" Height="50">
+          <Border.RenderTransform>
+            <TransformGroup>
+              <TranslateTransform />
+            </TransformGroup>
+          </Border.RenderTransform>
+        </Border>
       </Grid>
     </TabItem>
   </TabControl>
