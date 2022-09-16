@@ -8,39 +8,25 @@
         WindowStartupLocation="CenterScreen"
         Width="800" Height="600"
         Title="SpringDemo">
+  <Window.Resources>
+    <local:SpringEasing x:Key="SpringEasing" />
+  </Window.Resources>
   <Window.Styles>
-    <Style Selector="Border.spring1">
+    <Style Selector="Border.spring">
       <Style.Animations>
-        <Animation Duration="0:0:0.900" IterationCount="Infinite" PlaybackDirection="Normal">
+        <Animation Duration="0:0:0.900" IterationCount="Infinite" PlaybackDirection="Normal" Easing="{StaticResource SpringEasing}">
           <KeyFrame Cue="0%">
-            <Setter Property="TranslateTransform.X"
-                    Value="0"
-                    Animation.Animator="{x:Type local:TransformAnimator1}" />
+            <Setter Property="TranslateTransform.X" Value="0"/>
           </KeyFrame>
           <KeyFrame Cue="100%">
-            <Setter Property="TranslateTransform.X"
-                    Value="300"
-                    Animation.Animator="{x:Type local:TransformAnimator1}" />
-          </KeyFrame>
-        </Animation>
-      </Style.Animations>
-    </Style>
-    <Style Selector="Border.spring2">
-      <Style.Animations>
-        <Animation Duration="0:0:2" IterationCount="Infinite" PlaybackDirection="Alternate">
-          <KeyFrame Cue="0%">
-            <Setter Property="TranslateTransform.X"
-                    Value="0" />
-          </KeyFrame>
-          <KeyFrame Cue="100%">
-            <Setter Property="TranslateTransform.X"
-                    Value="300" />
+            <Setter Property="TranslateTransform.X" Value="300" />
           </KeyFrame>
         </Animation>
       </Style.Animations>
     </Style>
   </Window.Styles>
-  <Grid>
-    <Border Classes="spring1" Background="Red" Width="50" Height="50" />
-  </Grid>
+  <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+    <!-- <Border Name="Border" Classes="spring" Background="Red" Width="50" Height="50" /> -->
+    <Border Name="Border" Background="Red" Width="50" Height="50" />
+  </Canvas>
 </Window>

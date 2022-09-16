@@ -29,8 +29,14 @@ using System;
 
 namespace SpringDemo;
 
-public class SpringSolver 
+public struct SpringSolver 
 {
+    private double m_w0;
+    private double m_zeta;
+    private double m_wd;
+    private double m_A;
+    private double m_B;
+
     public SpringSolver(double mass, double stiffness, double damping, double initialVelocity)
     {
         m_w0 = Math.Sqrt(stiffness / mass);
@@ -45,6 +51,7 @@ public class SpringSolver
             // Critically damped (ignoring over-damped case for now).
             m_A = 1;
             m_B = -initialVelocity + m_w0;
+            m_wd = 0;
         }
     }
 
@@ -61,10 +68,4 @@ public class SpringSolver
         // Map range from [1..0] to [0..1].
         return 1 - t;
     }
-
-    double m_w0;
-    double m_zeta;
-    double m_wd;
-    double m_A;
-    double m_B;
-};
+}
