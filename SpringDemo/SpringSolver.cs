@@ -55,7 +55,7 @@ public struct SpringSolver
         }
     }
 
-    public double Solve(double t)
+    public readonly double Solve(double t)
     {
         if (m_zeta < 1) {
             // Under-damped
