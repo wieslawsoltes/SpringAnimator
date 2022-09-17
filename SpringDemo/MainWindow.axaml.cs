@@ -15,6 +15,21 @@ public partial class MainWindow : Window
         InitializeComponent();
         
         Border1.AttachedToVisualTree += BorderOnAttachedToVisualTree;
+
+        SpringGraph.PropertyChanged += SpringGraphOnPropertyChanged;
+    }
+
+    private void SpringGraphOnPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (Resources["SpringEasing2"] is SpringEasing springEasing2)
+        {
+            springEasing2.Mass = SpringGraph.Mass;
+            springEasing2.Stiffness = SpringGraph.Stiffness;
+            springEasing2.Damping = SpringGraph.Damping;
+            springEasing2.InitialVelocity = SpringGraph.InitialVelocity;
+
+            Resources["SpringEasing2"] = springEasing2;
+        }
     }
 
     private void BorderOnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
