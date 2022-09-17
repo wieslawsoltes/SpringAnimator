@@ -3,23 +3,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpringDemo"
-        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="350"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="550"
         x:Class="SpringDemo.MainWindow"
         WindowStartupLocation="CenterScreen"
+        MinWidth="500" MinHeight="550"
         Width="800" Height="600"
         Title="SpringDemo">
 
   <Window.Resources>
-    <SpringEasing x:Key="SpringEasing" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
+    <SpringEasing x:Key="SpringEasing1" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
+    <SpringEasing x:Key="SpringEasing2" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
   </Window.Resources>
 
   <Window.Styles>
-    <Style Selector="Border.spring">
+    <Style Selector="Border.spring1">
       <Style.Animations>
         <Animation Duration="0:0:0.900" 
                    IterationCount="Infinite" 
                    PlaybackDirection="Normal" 
-                   Easing="{StaticResource SpringEasing}">
+                   Easing="{DynamicResource SpringEasing1}">
+          <KeyFrame Cue="0%" KeySpline="">
+            <Setter Property="TranslateTransform.X" Value="-300"/>
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="Border.spring2">
+      <Style.Animations>
+        <Animation Duration="0:0:0.900" 
+                   IterationCount="Infinite" 
+                   PlaybackDirection="Normal" 
+                   Easing="{DynamicResource SpringEasing2}">
           <KeyFrame Cue="0%" KeySpline="">
             <Setter Property="TranslateTransform.X" Value="-300"/>
           </KeyFrame>
@@ -34,8 +51,17 @@
   <TabControl>
 
     <TabItem Header="Graph">
-      <Grid RowDefinitions="*,Auto">
-        <Panel Grid.Row="0" Margin="12">
+      <Grid RowDefinitions="100,*,Auto">
+        <Grid Grid.Row="0">
+          <Border Name="Border3" Classes="spring2" Background="Red" Width="50" Height="50">
+            <Border.RenderTransform>
+              <TransformGroup>
+                <TranslateTransform />
+              </TransformGroup>
+            </Border.RenderTransform>
+          </Border>
+        </Grid>
+        <Panel Grid.Row="1" Margin="12">
           <local:SpringGraph Name="SpringGraph"
                              Mass="1" 
                              Stiffness="2000" 
@@ -45,15 +71,23 @@
                              StrokeThickness="2"
                              Stretch="Fill" />
         </Panel>
-        <Grid Grid.Row="1" Margin="12" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto">
-          <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Content="Mass" />
-          <TextBox Grid.Row="0" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Mass}" />
-          <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Content="Stiffness" />
-          <TextBox Grid.Row="1" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Stiffness}" />
-          <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Content="Damping" />
-          <TextBox Grid.Row="2" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.Damping}" />
-          <Label Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Content="InitialVelocity" />
-          <TextBox Grid.Row="3" Grid.Column="1" BorderThickness="0" Text="{Binding #SpringGraph.InitialVelocity}" />
+        <Grid Grid.Row="2" Margin="12" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto">
+          <Label Grid.Row="0" Grid.Column="0" Margin="2" VerticalAlignment="Center" 
+                 Content="Mass" />
+          <NumericUpDown Grid.Row="0" Grid.Column="1" Margin="2" BorderThickness="1" 
+                         Value="{Binding #SpringGraph.Mass}" />
+          <Label Grid.Row="1" Grid.Column="0" Margin="2" VerticalAlignment="Center" 
+                 Content="Stiffness" />
+          <NumericUpDown Grid.Row="1" Grid.Column="1" Margin="2" BorderThickness="1" 
+                         Value="{Binding #SpringGraph.Stiffness}" />
+          <Label Grid.Row="2" Grid.Column="0" Margin="2" VerticalAlignment="Center" 
+                 Content="Damping" />
+          <NumericUpDown Grid.Row="2" Grid.Column="1" Margin="2" BorderThickness="1" 
+                         Value="{Binding #SpringGraph.Damping}" />
+          <Label Grid.Row="3" Grid.Column="0" Margin="2" VerticalAlignment="Center" 
+                 Content="InitialVelocity" />
+          <NumericUpDown Grid.Row="3" Grid.Column="1" Margin="2" BorderThickness="1" 
+                         Value="{Binding #SpringGraph.InitialVelocity}" />
         </Grid>
       </Grid>
     </TabItem>
@@ -66,7 +100,7 @@
 
     <TabItem Header="Style">
       <Grid>
-        <Border Name="Border2" Classes="spring" Background="Red" Width="50" Height="50">
+        <Border Name="Border2" Classes="spring1" Background="Red" Width="50" Height="50">
           <Border.RenderTransform>
             <TransformGroup>
               <TranslateTransform />
