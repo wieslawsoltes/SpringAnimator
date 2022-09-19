@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Numerics;
 using Avalonia;
 using Avalonia.Animation;
@@ -21,6 +22,22 @@ public partial class MainWindow : Window
 
     private void SpringGraphOnPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
     {
+        // https://www.webassign.net/labsgraceperiod/asucolphysmechl1/lab_8/manual.html
+        var m = SpringGraph.Mass;
+        var k = SpringGraph.Stiffness;
+        var T = (2 * Math.PI / Math.Sqrt(k)) * Math.Sqrt(m);
+        Debug.WriteLine($"Period: {T}s");
+
+        // Units:
+        // T [s]
+        // m_w0 [rad/s]
+
+        // From period in seconds:
+        // m_w0 = 2 * Math.PI / T
+
+        // From stiffness and mass:
+        // m_w0 = Math.Sqrt(k / m);
+
         if (Resources["SpringEasing2"] is SpringEasing springEasing2)
         {
             springEasing2.Mass = SpringGraph.Mass;
