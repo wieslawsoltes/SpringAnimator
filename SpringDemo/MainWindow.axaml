@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpringDemo"
+        xmlns:a="clr-namespace:SpringDemo.Animation"
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="550"
         x:Class="SpringDemo.MainWindow"
         WindowStartupLocation="CenterScreen"
@@ -11,8 +12,8 @@
         Title="SpringDemo">
 
   <Window.Resources>
-    <SpringEasing x:Key="SpringEasing1" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
-    <SpringEasing x:Key="SpringEasing2" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
+    <a:SpringEasing x:Key="SpringEasing1" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
+    <a:SpringEasing x:Key="SpringEasing2" Mass="1" Stiffness="2000" Damping="20" InitialVelocity="0" />
   </Window.Resources>
 
   <Window.Styles>
